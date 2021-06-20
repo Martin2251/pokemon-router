@@ -1,6 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
+
+function Card(props) {
+  return (
+    <div>
+      <h4>{props.character.name}</h4>
+      <p>Yellow</p>
+      <p>5 years</p>
+    </div>
+  );
+}
 
 function App() {
   const [listCharacters, setListCharacters] = useState([]);
@@ -11,7 +20,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setListCharacters(data.name);
+        setListCharacters(data.results);
       });
   }, []);
   return (
